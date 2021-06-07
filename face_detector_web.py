@@ -1,6 +1,6 @@
 ## Flask를 이용한 opencv 라이브
 ## https://blog.daum.net/ejleep1/1003
-
+## https://aciddust.github.io/blog/post/Python-%EC%B9%B4%EB%A9%94%EB%9D%BC-%EC%9B%B9-%EB%B7%B0%EC%96%B4/
 from flask import Flask, render_template, Response
 import cv2
 import numpy as np
