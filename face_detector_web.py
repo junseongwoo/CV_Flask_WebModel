@@ -1,6 +1,7 @@
 ## Flask를 이용한 opencv 라이브
 ## https://blog.daum.net/ejleep1/1003
 ## https://aciddust.github.io/blog/post/Python-%EC%B9%B4%EB%A9%94%EB%9D%BC-%EC%9B%B9-%EB%B7%B0%EC%96%B4/
+
 from flask import Flask, render_template, Response
 import cv2
 import numpy as np
@@ -21,7 +22,7 @@ def index():
             'title':'Image Streaming',
             'time': timeString
             }
-    return render_template('index.html', **templateData)
+    return render_template('index_1.html', **templateData)
 
 def gen_frames():
     camera = cv2.VideoCapture(0)
@@ -48,14 +49,15 @@ def gen_frames():
         cv2.putText(image, timeString, (10, 45),cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 0), 2)
         cv2.imshow("Frame", image)
         key = cv2.waitKey(1) & 0xFF
+        
      # if the `q` key was pressed, break from the loop
         if key == ord("q"):
             break
-   
+
         ret, buffer = cv2.imencode('.jpg', image)
         frame = buffer.tobytes()
         yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
        
  
 @app.route('/video_feed')
