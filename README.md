@@ -1,2 +1,2 @@
-# OpenCV_Flask_WebModel
-Creating a web model using opencv and flask
+# Computer Vision_Flask_WebModel
+Creating a Vision web model using opencv and flask
